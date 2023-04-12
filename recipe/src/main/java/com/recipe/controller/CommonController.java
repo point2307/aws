@@ -34,6 +34,7 @@ public class CommonController {
     @Autowired
     private AdminService adminService;
 
+    // 메인페이지 이동
     @RequestMapping({"/mainPage", "/"})
     public String mainPage(Model model, @AuthenticationPrincipal SecurityUser user){
         if(user != null){
@@ -44,17 +45,17 @@ public class CommonController {
         model.addAttribute("banner2", adminService.fundingBanner());
         model.addAttribute("banner3", adminService.eventBanner());
         model.addAttribute("column", adminService.columnList());
-        return "/mainPage";
+        return "mainPage";
     }
 
     @GetMapping("/common/adminMain")
     public String adminMain(){
-      return "/admin/adminMain";
+      return "admin/adminMain";
     }
 
     @RequestMapping("/common/getCart")
     public String getCart(Model model, @AuthenticationPrincipal SecurityUser user){
-        int total = 0;
+        int total = 0;  // 장바구니에 표시 될 총 금액
         List<Cart> cartList = new ArrayList<>();
         if(user != null){
             cartList = cartService.getCartList(user.getMember());
@@ -65,18 +66,18 @@ public class CommonController {
         }
         model.addAttribute("cartList", cartList);
         model.addAttribute("total", total);
-        return "/common/cartList";
+        return "common/cartList";
     }
 
     @RequestMapping("/admin/adminMain")
     public String adminPage(){
-        return "/admin/adminMain";
+        return "admin/adminMain";
     }
 
     @GetMapping("/oauth2Suc")
     public String loginsuccess(Model model, HttpSession session){
 
-        return "/mainPage";
+        return "mainPage";
 
     }
 
@@ -84,8 +85,11 @@ public class CommonController {
     public SseEmitter realTimealert(@AuthenticationPrincipal SecurityUser user){
         SseEmitter emitter = new SseEmitter();
         ExecutorService executorService = Executors.newSingleThreadExecutor();
+        //로그인한 유저 확인
         if(user!=null) {
             Member member = memberService.getMember(user.getMember().getUserId());
+
+            // 댓글 작성 프로세스를 통해서 추가된 member의 Alarm 데이터 체크
             if(member.getAlarm() > 0){
                 System.out.println(member.getAlarm());
                 executorService.execute(() -> {

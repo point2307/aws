@@ -40,12 +40,12 @@ public class BoardController {
 
         model.addAttribute("boardList", list);
 
-        return "/common/boardList";
+        return "common/boardList";
     }
 
     @GetMapping("/board/insertBoardForm")
     public String insertBoardForm(){
-        return "/board/insertBoard";
+        return "board/insertBoard";
     }
 
     @PostMapping("/board/insertBoard")
@@ -71,6 +71,6 @@ public class BoardController {
     @GetMapping("/common/getBoard")
     public String getBoard(Board vo, Model model){
         model.addAttribute("Board", boardService.getBoardById(vo));
-        return "/common/getBoard";
+        return "common/getBoard";
     }
 }

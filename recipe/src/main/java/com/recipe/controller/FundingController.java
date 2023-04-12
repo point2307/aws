@@ -30,13 +30,13 @@ public class FundingController {
     @RequestMapping("/common/fundingList")
     public String fundingList(@PageableDefault(size = 6, direction = Sort.Direction.DESC, sort = "fundId") Pageable pageable, Model model){
         model.addAttribute("fundingList", fundingService.getFundingList(pageable));
-        return "/common/fundingList";
+        return "common/fundingList";
     }
 
     @GetMapping("/admin/insertFunding")
     public String insertFundingForm(){
 
-        return "/admin/insertFunding";
+        return "admin/insertFunding";
     }
 
     @PostMapping("/admin/insertFunding")
@@ -67,7 +67,7 @@ public class FundingController {
     @GetMapping("/common/getFunding")
     public String getFunding(Funding vo, Model model){
         model.addAttribute("funding", fundingService.getFundingById(vo));
-        return "/common/getFunding";
+        return "common/getFunding";
     }
 
     @PostMapping("/admin/selectKit")

@@ -21,8 +21,9 @@ public class AdminController {
 
     @GetMapping("makeMain")
     public String makeMainForm(){
-        return "/admin/makeMain";
+        return "admin/makeMain";
     }
+
     @PostMapping("makeMain")
     public String makeMain(Notice notice, MultipartFile pic) throws Exception{
         if(pic.isEmpty()){
@@ -35,6 +36,6 @@ public class AdminController {
             notice.setImage(newFileName.toString());
         }
         adminService.insertNotice(notice);
-        return "/admin/adminMain";
+        return "admin/adminMain";
     }
 }

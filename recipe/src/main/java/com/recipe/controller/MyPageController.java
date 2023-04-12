@@ -55,7 +55,7 @@ public class MyPageController {
         model.addAttribute("member", memberService.getMember(vo.getUserId()));
         return "redirect:/myPage/mymain";
     }
-    @GetMapping("/member/deleteSelf")
+    @GetMapping("member/deleteSelf")
     public String deleteSelf(@AuthenticationPrincipal SecurityUser user){
         if(user !=null){
             memberService.deleteMem(user.getMember());
@@ -64,7 +64,7 @@ public class MyPageController {
             SecurityContextHolder.getContext().setAuthentication(null);
         }
 
-        return "redirect:/";
+        return "redirect:";
     }
 
     @GetMapping("/myPage/mymain")

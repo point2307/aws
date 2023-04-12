@@ -31,7 +31,7 @@ public class MealkitController {
 
     @GetMapping("/admin/insertKit")
     public String insertKitForm(){
-        return "/admin/insertKit";
+        return "admin/insertKit";
     }
 
     @PostMapping("/admin/insertKit")
@@ -54,7 +54,7 @@ public class MealkitController {
     public String getKit(Mealkit vo, Model model){
 
         model.addAttribute("mealkit",mealkitService.getKit(vo));
-        return "/common/getKit";
+        return "common/getKit";
     }
 
     @PostMapping("/admin/famousRecipe")
@@ -71,7 +71,7 @@ public class MealkitController {
                           Model model){
 
         model.addAttribute("kitList", mealkitService.getKitList(pageable));
-        return"/common/kitList";
+        return"common/kitList";
     }
 
 }

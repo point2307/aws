@@ -52,12 +52,12 @@ public class RecipeController {
             }
         }
         model.addAttribute("recipeList",recipePage);
-        return "/common/recipeMain";
+        return "common/recipeMain";
     }
 
     @GetMapping("/recipe/makeRecipe")
     public String makeRecipeF(){
-        return "/recipe/makeRecipe";
+        return "recipe/makeRecipe";
     }
     @PostMapping("/recipe/makeRecipe")
     public String makeRecipe(Recipe vo, MultipartFile eximage,
@@ -113,7 +113,7 @@ public class RecipeController {
         vo.setWriter(principal.getMember());
 
         recipeService.makeRecipe(vo);
-        return "redirect:/common/getRecipe?recipeId="+vo.getRecipeId();
+        return "redirect:common/getRecipe?recipeId="+vo.getRecipeId();
     }
 
     @RequestMapping("/common/getRecipe")
@@ -132,7 +132,7 @@ public class RecipeController {
         Recipe recipe = recipeService.getRecipeById(vo);
 
         model.addAttribute("recipe", recipe);
-        return "/recipe/updateRecipe";
+        return "recipe/updateRecipe";
     }
     @PostMapping("/recipe/updateRecipe")
     public String updateRecipe(Recipe vo, MultipartFile eximage,
@@ -297,7 +297,7 @@ public class RecipeController {
         Page<Recipe> recipePage = recipeService.likeyRecipe(user.getMember(), pageable);
 
         model.addAttribute("recipeList",recipePage);
-        return "/myPage/myRecipe";
+        return "myPage/myRecipe";
     }
 
     @GetMapping("/myPage/myRecipe")
@@ -311,6 +311,6 @@ public class RecipeController {
         model.addAttribute("recipeList",recipePage);
         model.addAttribute("search", search);
 
-        return "/myPage/myRecipe";
+        return "myPage/myRecipe";
     }
 }
