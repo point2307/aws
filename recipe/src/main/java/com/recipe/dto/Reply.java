@@ -15,8 +15,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @ToString(exclude = {"writer", "board", "recipe", "funding"})
 public class Reply {
 	@Id
-	@SequenceGenerator(name = "reply_seq", sequenceName = "reply_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reply_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private	Long	replyId;
 	@OneToOne
 	@JoinColumn(name = "writer")

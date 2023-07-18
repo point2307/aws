@@ -14,8 +14,7 @@ public class RecipeProc {
 
 
 	@Id
-	@SequenceGenerator(name = "proc_seq", sequenceName = "proc_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "proc_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long procId;
 	
 	@ManyToOne

@@ -11,8 +11,7 @@ import lombok.ToString;
 @ToString(exclude = {"fundingkit","member"})
 public class Cart {
     @Id
-    @SequenceGenerator(name = "cart_seq", sequenceName = "cart_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cartId;
 
     @ManyToOne

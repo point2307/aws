@@ -17,8 +17,7 @@ import java.util.List;
 @ToString(exclude = {"funding", "recipe"})
 public class Mealkit {
 	@Id
-	@SequenceGenerator(name = "kit_seq", sequenceName = "kit_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "kit_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private	Long	kitId;
 	private	String	kitName;  //밀키트 이름
 	private String exImg;  // 조리예 사진

@@ -10,8 +10,7 @@ import lombok.ToString;
 @ToString(exclude = {"mater","recipe"})
 public class RawMater {
     @Id
-    @SequenceGenerator(name = "raw_seq", sequenceName = "raw_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "raw_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long rawId;
     @OneToOne
     @JoinColumn(name="mater")
