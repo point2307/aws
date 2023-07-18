@@ -16,8 +16,7 @@ import java.util.Date;
 public class BuyDetail {
 
     @Id
-    @SequenceGenerator(name = "buyDetailSeq", sequenceName = "buyDetailSeq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "buyDetailSeq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "buyDetailSeq")
     private Long buyDeId;
 
     @ManyToOne

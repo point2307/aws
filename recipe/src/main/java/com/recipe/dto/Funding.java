@@ -14,8 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @ToString(exclude = "fundingKit")
 public class Funding {
 	@Id
-	@SequenceGenerator(name = "fund_seq", sequenceName = "fund_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fund_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private	Long fundId;
 	private String title;
 

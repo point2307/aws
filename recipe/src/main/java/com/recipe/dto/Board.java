@@ -15,8 +15,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @ToString(exclude = {"board_recipe", "board_mealkit", "replyList"})
 public class Board {
 	@Id
-	@SequenceGenerator(name = "board_seq", sequenceName = "board_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "board_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "board_seq")
 	private	Long 	boardId;
 	
 	@ManyToOne

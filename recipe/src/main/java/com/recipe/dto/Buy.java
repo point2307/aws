@@ -15,8 +15,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @ToString(exclude = {"buyer", "buyDetails"})
 public class Buy {
 	@Id
-	@SequenceGenerator(name = "buy_seq", sequenceName = "buy_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "buy_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long buyId;
 	
 	@ManyToOne

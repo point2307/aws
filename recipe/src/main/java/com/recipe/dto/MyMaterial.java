@@ -11,8 +11,7 @@ import lombok.ToString;
 @ToString(exclude = {"member, material"})
 public class MyMaterial {
     @Id
-    @SequenceGenerator(name = "mymater_seq", sequenceName = "mymater_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mymater_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long myMaterId;
 
     @ManyToOne

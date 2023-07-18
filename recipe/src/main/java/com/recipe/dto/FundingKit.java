@@ -10,8 +10,7 @@ import lombok.ToString;
 @Entity
 public class FundingKit {
     @Id
-    @SequenceGenerator(name = "fundkit_seq", sequenceName = "fundkit_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fundkit_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long fundKitId;
 
     @ManyToOne(cascade = CascadeType.ALL)

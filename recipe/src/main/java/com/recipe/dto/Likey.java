@@ -15,8 +15,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @ToString(exclude = {"member", "board" ,"recipe", "funding", "reply","mealkit"})
 public class Likey {
     @Id
-    @SequenceGenerator(name = "likey_seq", sequenceName = "likey_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "likey_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long likeyId;
 
     @ManyToOne
